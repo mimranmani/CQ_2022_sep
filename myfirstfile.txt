@@ -1,2 +1,141 @@
-mkdir {folder_name}	              # make folder  
-rmdir {folder_name}	              # remove folder in current directory
+LINUX
+
+Ctrl + D # to end a process or command 
+
+/home/cq	# Home directory 
+# (/) absolute path  defines full path to a directory 
+# no leading (/) means you are specifying current 
+
+ echo $SHELL. # Which shell I am using  (/bin/bash), on Mac (/bin/zsh)
+
+ls -l  # linux commands are case-sensitive
+
+ls -r # Some commands have option or parameters
+
+$date; ls # multiple commands can be run in one command line be separating them with a semicolon
+ 
+man # most Linux commands have a manual or man page to described how they can be used
+
+whoami
+pwd
+echo $USER
+echo $HOME
+echo $PWD   
+
+$USER, $HOME and $PWD are shell variables. Default shell variable values (if unset)
+
+Assigning default value to empty variable
+echo ${country:=Germany}		# $ {<variable>:=<default_value>}
+echo $country
+
+echo “Hello world”			# echo in terminal
+echo ‘output’ > myoutput “Hello world”
+echo output > myoutput	# create a file, if file exist it will overwrite (>single for overwrite)
+echo -en "Hello\n world" >> myoutput	# write output to file (\n) to same file (>> add to the same file) ######Use the the >> instead of > to append data to existing file and to avoid overwriting files.
+
+echo -en "Hello world\n" >> output5	# output to a new line in the file at the end (/n)
+
+echo -en "Hello people1\n""Hello people2\n""Hello people3\n""Hello people4\n""Hello people5\n" >> output5 # add multiple lines to a file (-en is important)
+
+shuf -i X-Y -n 20 > myfile # add random numbers {x-y is range} to a file
+
+
+==============================================
+
+File # each file and directory has a name (avoid blanks) and are case-sensitive
+
+/home/CQ (on MAC /Users/ikhan)
+
+Parent directory (home)
+working directory (CQ), is the Directory with which your shell is currently associated
+
+===========================
+cd # used to change directory, without argument > to home directory
+cd .. # one step back
+cd “directory”
+cd /home_directory/sub_folder
+==============================
+
+ls # list all
+	- blue > directory (which you have access)
+	- white > file
+	- green > executable file
+	- red > comprised file
+ls -l 	# use a long listing format
+ls h	# human readable (-h -s > show the size)
+ls a	# do not ignore entries starting with 
+ls lt	# list sorted by modification, newest first
+
+ls -l /usr/directory/folder
+> this examples show how to view the content of a directory by using arguments rather than changing to the corresponding directory prior (mainly to get to root folder) 
+=================================
+mkdir {folder_name}	# make folder  
+rmdir {folder_name}	# remove folder in current directory
+
+====================================
+$ echo ‘I love science!’ > Science	# write the comment in the file, and don’t echo it 
+$ touch scinec_project		# create empty file
+$ mkdir scienceclass
+ls -ld science*	# wild card (get anything with the name science, files and folder)
+
+rm science*		# try to remove all files with science in name
+==========================================
+command > file
+command > file	output to existing file 
+command < file	# tell command to read content from a file 
+rm -R [dir]		# remove directory & contents
+whatis [command] # gives one line description of commands (e.g. whatis ls)
+==============================================================================
+File [file_name]	# format of file (e.g. ASCII text)
+Apropos editor 
+============
+Wildcard (cat, echo, ls)
+The * can be used to 
+
+cat [name]* #cat magic* (show the contents of all the files which starts with the word magic
+
+ls [name]*	# get files which starts with the name magic, files and folder)
+			ls magic* > magic  magic1  magic2  magic3  magic4  magic5
+
+ls *[name]*	# files with magic name anywhere in the name
+			ls *magic* > magic  magic1  magic2  magic3  magic4  magic5  
+
+ls mag*c # name start with “mag” and ends with “c”
+ls [name]?	# ls [magic]?, # get files which starts with the name magic (*anything, while ? represent one character. So magic itself is missing)
+			ls magic? > magic1  magic2  magic3  magic4  magic5
+
+ls *.txt		# all files withe the same extension (like .txt)
+======================================================
+
+Viewing the contents of the files
+cat [file_name] # view file contents 
+cat [file 1] [file 2] # can read multiple files in one goo 
+cat [file 1] [file 2]  > new_file # output to a new file
+cat [file 1] [file 2]  >> new_file # output to an existing (>>) file i.e newmagic (> to replace contents)
+
+more [file]	# content per page (cat gives complete)
+less	[file]	# content per page (first 31 lines), (Quit afterwards)
+head [file]	# only show first 20 line,
+head -[n] [file] #  head -12  (- indicate an option)
+tail [file]		# only show last 20 line
+head [file]; tail [file]	# show head & tail of a file 
+head -10 [file]; tail -10 [file]	# show first 10 & last ten of the file (head -10 output5; tail -10 output5)
+
+============================================================
+Moving files
+mv [file_1] [filenew]		# rename the file (move one file with the other)
+mv [file_1] [directory]		# move file to the existing directory 
+
+an existing folder , mv vollyball sports
+mv [directory] [new_directory] 
+
+mv volleyball /home/cq/Linux/sportsnew/ 	# file can be moved to any folder with absolute path (/home/user/folder/folder/)
+
+mv [fileName]* [folder] # use wild card to move all files with the  name to folder (mv output* sportsnew)
+=====================================
+Copy
+cp source destination # 
+cp option source destination # copy directories recursivlley (can repeat itself indefinitely until all files and folder are copied)
+=======================
+
+
