@@ -1,0 +1,6 @@
+git clone https://github.com/mimranmani/CQ_2022_sep.git # import the file on local drive
+https://github.com/mimranmani/CQ_2022_sep.git # git clone Link_to_git_folder
+git add file1 file2
+git status
+git commit -m "massage" (commit command doesn’t rely on file name e.g. git commit -m "added_another_line")
+git push
