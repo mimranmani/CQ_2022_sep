@@ -1,0 +1,2 @@
+mkdir {folder_name}	              # make folder  
+rmdir {folder_name}	              # remove folder in current directory
