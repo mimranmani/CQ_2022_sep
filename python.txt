@@ -1,0 +1,328 @@
+Python
+
+First you need to install Homebrew, a powerful package manager for Mac.
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew install pyenv
+pyenv install 3.10.6
+
+“Installed Python-3.10.6 to /Users/ikhan/.pyenv/versions/3.10.6”
+ cd /Users/ikhan/terminal.py
+
+
+How to Set Up Your MacOS PATH for pyenv in ZSH or OhMyZSH
+If instead of using the Mac default Bash, you're using ZSH (or OhMyZSH) like I am, you'll want to edit the .zshrc file instead:
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init --path)"\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
+
+
+
+pyenv global 3.10.6    #set the latest version of Python to be global,
+pyenv versions    # verify the global version of Python:
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
+
+
+brew doctor # running should notify you of any PATH or configuration issues for brew
+
+/Applications/MacVim
+sudo ln -s /Applications/MacVim.app/Contents/bin/mvim /usr/local/bin/mvim (Location > ln: /usr/local/bin/mvim)
+
+
+Comments starts with a #, and Python will ignore them:
+
+/usr/local/bin/python3
+
+#This is a comment
+print("Hello, World!")
+cd /Users/ikhan/terminal.py
+
+Comments can be placed at the end of a line, and Python will ignore the rest of the line:
+
+print("Hello, World!") #This is a comment
+
+A = “Today we will learn how to”
+B = “code in terminal”
+A + “ “+ b
+
+
+Whenever you are done in the python command line, you can simply type the following to quit the python command line interface:
+exit()
+
+Python Indentation
+Indentation refers to the spaces at the beginning of a code line. Python uses indentation to indicate a block of code.
+
+if 5 > 2:
+  print("Five is greater than two!")
+
+Syntax Error: Python will give you an error if you skip the indentation:
+
+if 5 > 2:
+print("Five is greater than two!")
+
+Get the Type
+You can get the data type of a variable with the type() function.
+
+x = 5
+y = "John"
+print(type(x))
+print(type(y))
+
+Variable Names
+A variable can have a short name (like x and y) or a more descriptive name (age, carname, total_volume). Rules for Python variables:
+* A variable name must start with a letter or the underscore character
+* A variable name cannot start with a number
+* A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
+* Variable names are case-sensitive (age, Age and AGE are three different variables)
+Int, or integer, is a whole number, positive or negative, without decimals, of unlimited length (x = 1)
+Float, or "floating point number" is a number, positive or negative, containing one or more decimals. (e.g. x = 1.10)
+Float can also be scientific numbers with an "e" to indicate the power of 10 (e.g. x = 35e3)
+Complex numbers are written with a "j" as the imaginary part (x = 3+5j or y = 5j)
+
+To check if a certain phrase or character is present in a string, we can use the keyword in.
+
+Check if "free" is present in the following text:
+txt = "The best things in life are free!"
+print("free" in txt)
+
+Use it in an if statement:
+
+Print only if "free" is present:
+
+txt = "The best things in life are free!"
+if "free" in txt:
+  print("Yes, 'free' is present.")
+
+Check if NOT
+To check if a certain phrase or character is NOT present in a string, we can use the keyword not in.
+
+Check if "expensive" is NOT present in the following text:
+
+txt = "The best things in life are free!"
+print("expensive" not in txt)
+
+Use it in an if statement:
+
+print only if "expensive" is NOT present:
+txt = "The best things in life are free!"
+if "expensive" not in txt:
+  print("No, 'expensive' is NOT present.")
+
+String Concatenation
+To concatenate, or combine, two strings you can use the + operator.
+Merge variable a with variable b into variable c:
+a = "Hello"
+b = "World"
+c = a + b
+print(c)
+
+To add a space between them, add a " ":
+a = "Hello"
+b = "World"
+c = a + " " + b
+print(c)
+
+
+String Format
+As we learned in the Python Variables chapter, we cannot combine strings and numbers like this:
+age = 36
+txt = "My name is John, I am " + age
+print(txt)
+
+But we can combine strings and numbers by using the format() method!
+The format() method takes the passed arguments, formats them, and places them in the string where the placeholders {} are:
+
+Use the format() method to insert numbers into strings:
+
+age = 36
+txt = "My name is John, and I am {}"
+print(txt.format(age))
+
+
+The format() method takes unlimited number of arguments, and are placed into the respective placeholders:
+
+
+
+quantity = 3
+itemno = 567
+price = 49.95
+myorder = "I want {} pieces of item {} for {} dollars."
+print(myorder.format(quantity, itemno, price))
+
+You can use index numbers {0} to be sure the arguments are placed in the correct placeholders:
+
+
+quantity = 3
+itemno = 567
+price = 49.95
+myorder = "I want to pay {2} dollars for {0} pieces of item {1}."
+print(myorder.format(quantity, itemno, price))
+
+
+Escape Character
+To insert characters that are illegal in a string, use an escape character.
+An escape character is a backslash \ followed by the character you want to insert.
+
+An example of an illegal character is a double quote inside a string that is surrounded by double quotes:
+
+txt = "We are the so-called "Vikings" from the north."
+To fix this problem, use the escape character \":
+
+txt = "We are the so-called \"Vikings\" from the north."
+
+Boolean Values
+In programming you often need to know if an expression is True or False.
+You can evaluate any expression in Python, and get one of two answers, True or False.
+When you compare two values, the expression is evaluated and Python returns the Boolean answer:
+
+Ex
+Print a message based on whether the condition is True or False:
+
+a = 200
+b = 33
+
+if b > a:
+  print("b is greater than a")
+else:
+  print("b is not greater than a")
+
+
+Python Operators
+Operators are used to perform operations on variables and values.
+In the example below, we use the + operator to add together two values:
+Example
+print(10 + 5)
+Run example »
+Python divides the operators in the following groups:
+* Arithmetic operators
+* Assignment operators
+* Comparison operators
+* Logical operators
+* Identity operators
+* Membership operators
+* Bitwise operators
+
+Python Arithmetic Operators
+Arithmetic operators are used with numeric values to perform common mathematical operations:
+Operator	Name	Example	Try it
++	Addition	x + y	Try it »
+-	Subtraction	x - y	Try it »
+*	Multiplication	x * y	Try it »
+/	Division	x / y	Try it »
+%	Modulus	x % y	Try it »
+**	Exponentiation	x ** y	Try it »
+//	Floor division	x // y	Try it »
+Python Assignment Operators
+Assignment operators are used to assign values to variables:
+Operator	Example	Same As	Try it
+=	x = 5	x = 5	Try it »
++=	x += 3	x = x + 3	Try it »
+-=	x -= 3	x = x - 3	Try it »
+*=	x *= 3	x = x * 3	Try it »
+/=	x /= 3	x = x / 3	Try it »
+%=	x %= 3	x = x % 3	Try it »
+//=	x //= 3	x = x // 3	Try it »
+**=	x **= 3	x = x ** 3	Try it »
+&=	x &= 3	x = x & 3	Try it »
+|=	x |= 3	x = x | 3	Try it »
+^=	x ^= 3	x = x ^ 3	Try it »
+>>=	x >>= 3	x = x >> 3	Try it »
+<<=	x <<= 3	x = x << 3	Try it »
+
+
+Python Comparison Operators
+Comparison operators are used to compare two values:
+Operator	Name	Example	Try it
+==	Equal	x == y	Try it »
+!=	Not equal	x != y	Try it »
+>	Greater than	x > y	Try it »
+<	Less than	x < y	Try it »
+>=	Greater than or equal to	x >= y	Try it »
+<=	Less than or equal to	x <= y	Try it »
+Python Logical Operators
+Logical operators are used to combine conditional statements:
+Operator	Description	Example	Try it
+and	Returns True if both statements are true	x < 5 and  x < 10	Try it »
+or	Returns True if one of the statements is true	x < 5 or x < 4	Try it »
+not	Reverse the result, returns False if the result is true	not(x < 5 and x < 10)	Try it »
+Python Identity Operators
+Identity operators are used to compare the objects, not if they are equal, but if they are actually the same object, with the same memory location:
+Operator	Description	Example	Try it
+is	Returns True if both variables are the same object	x is y	Try it »
+is not	Returns True if both variables are not the same object	x is not y	Try it »
+Python Membership Operators
+Membership operators are used to test if a sequence is presented in an object:
+Operator	Description	Example	Try it
+in	Returns True if a sequence with the specified value is present in the object	x in y	Try it »
+not in	Returns True if a sequence with the specified value is not present in the object	x not in y	Try it »
+Python Bitwise Operators
+Bitwise operators are used to compare (binary) numbers:
+Operator	Name	Description
+&	AND	Sets each bit to 1 if both bits are 1
+|	OR	Sets each bit to 1 if one of two bits is 1
+^	XOR	Sets each bit to 1 if only one of two bits is 1
+~	NOT	Inverts all the bits
+<<	Zero fill left shift	Shift left by pushing zeros in from the right and let the leftmost bits fall off
+>>	Signed right shift	Shift right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off
+
+List
+Lists are used to store multiple items in a single variable.
+Lists are one of 4 built-in data types in Python used to store collections of data, the other 3 are Tuple, Set, and Dictionary, all with different qualities and usage.
+
+Python Collections (Arrays)
+There are four collection data types in the Python programming language:
+* List is a collection which is ordered and changeable. Allows duplicate members.
+* Tuple is a collection which is ordered and unchangeable. Allows duplicate members.
+* Set is a collection which is unordered, unchangeable*, and unindexed. No duplicate members.
+* Dictionary is a collection which is ordered** and changeable. No duplicate members.
+
+
+Lists are created using square brackets:
+
+
+Ex Create a List:
+
+thislist = ["apple", "banana", "cherry"]
+print(thislist)
+
+The list() Constructor
+It is also possible to use the list() constructor when creating a new list.
+
+thislist = list(("apple", "banana", "cherry")) # note the double round-brackets
+print(thislist)
+
+
+====================================
+NumPy is a Python library.
+NumPy is used for working with arrays.
+NumPy is short for "Numerical Python".
+==================================
+Pandas is a Python library.
+Pandas is used to analyze data.
+
+==============================
+SciPy is a scientific computation library that uses NumPy underneath.
+SciPy stands for Scientific Python.
+===========================
+Django is a back-end server side web framework.
+Django is free, open source and written in Python.
+Django makes it easier to build web pages using Python.
+
+=============================
+Matplotlib is a low level graph plotting library in python that serves as a visualization utility.
+
+==================
+Machine Learning is making the computer learn from studying data and statistics.
+Machine Learning is a step into the direction of artificial intelligence (AI).
+Machine Learning is a program that analyses data and learns to predict the outcome.
+====================================
+Python can be used in database applications.
+One of the most popular databases is MySQL.
+
+=====================================
+
+
