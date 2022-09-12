@@ -1,0 +1,8 @@
+mkdir {folder_name}	              # make folder  
+rmdir {folder_name}	              # remove folder in current directory
+cat [file_name] # view file contents 
+cat [file 1] [file 2]             # can read multiple files in one goo 
+cat [file 1] [file 2]  > new_file # output to a new file
+mv [file_1] [filenew]		          # rename the file (move one file with the other)
+mv [file_1] [directory]		        # move file to the existing directory 
+
